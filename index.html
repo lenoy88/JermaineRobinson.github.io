@@ -1,92 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jermaine Robinson | IT Portfolio</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #0b1220; color: #e7eefc; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 28px; }
-    header { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
-    .tag { padding: 6px 10px; border:1px solid #2a3a62; border-radius:999px; font-size: 12px; }
-    .card { background:#111b33; border:1px solid #22335a; border-radius: 16px; padding: 18px; margin-top: 18px; }
-    a { color:#8ab4ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 10px; }
-    .btn { display:inline-block; padding:10px 14px; border-radius: 12px; border:1px solid #2a3a62; background:#0e1730; }
-    .btn:hover { background:#121f3f; }
-    footer { opacity:.8; margin-top: 22px; font-size: 12px; }
-    ul { margin: 8px 0 0 18px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jermaine Robinson | IT Portfolio</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#0b1220;
+  color:#e7ecff;
+  margin:0;
+}
+
+.wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:30px;
+}
+
+header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+h1{margin-bottom:5px;}
+.subtitle{opacity:.8}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:#111b33;
+  border-radius:14px;
+  padding:18px;
+  border:1px solid #22355a;
+}
+
+h2{margin-top:0;}
+
+ul{padding-left:18px}
+
+footer{
+  text-align:center;
+  margin-top:30px;
+  opacity:.7;
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1 style="margin:0;">Jermaine Robinson</h1>
-        <div style="margin-top:6px;" class="tag">IT Student • Networking • Security</div>
-      </div>
-      <div>
-        <a class="btn" href="#projects">Projects</a>
-        <a class="btn" href="#skills" style="margin-left:8px;">Skills</a>
-        <a class="btn" href="#contact" style="margin-left:8px;">Contact</a>
-      </div>
-    </header>
+<div class="wrap">
 
-    <div class="card">
-      <h2 style="margin-top:0;">About me</h2>
-      <p style="line-height:1.5;">
-        I’m an IT student building hands-on skills in networking and security. I like practical labs
-        like VLANs, pfSense, and troubleshooting real setups.
-      </p>
-    </div>
+<header>
+  <h1>Jermaine Robinson</h1>
+  <div class="subtitle">IT Student • Networking • Security</div>
+</header>
 
-    <div class="card" id="projects">
-      <h2 style="margin-top:0;">Projects</h2>
-      <div class="grid">
-        <div class="card" style="margin:0;">
-          <h3 style="margin-top:0;">VLAN + DHCP Snooping Lab</h3>
-          <p>Configured VLANs, verified connectivity, and secured the switch using DHCP Snooping/DAI.</p>
-          <p><a href="#">Add your GitHub link</a></p>
-        </div>
-        <div class="card" style="margin:0;">
-          <h3 style="margin-top:0;">pfSense Firewall Setup</h3>
-          <p>Built NAT rules, tested inbound/outbound traffic, and documented the configuration.</p>
-          <p><a href="#">Add your GitHub link</a></p>
-        </div>
-        <div class="card" style="margin:0;">
-          <h3 style="margin-top:0;">Cloud Comparison Notes</h3>
-          <p>AWS vs Azure vs GCP comparison cheat-sheet with real examples and diagrams.</p>
-          <p><a href="#">Add your link</a></p>
-        </div>
-      </div>
-    </div>
+<div class="grid">
 
-    <div class="card" id="skills">
-      <h2 style="margin-top:0;">Skills</h2>
-      <ul>
-        <li>Networking: VLANs, subnetting, DHCP, DNS basics</li>
-        <li>Security: firewall rules, NAT, basic hardening</li>
-        <li>Tools: pfSense, Wireshark (basic), Windows CLI</li>
-        <li>Soft skills: documenting labs, troubleshooting, customer mindset</li>
-      </ul>
-    </div>
+<div class="card">
+  <h2>About Me</h2>
+  <p>
+    Motivated IT student building hands-on skills in networking,
+    cybersecurity, and troubleshooting. Seeking an entry-level IT role
+    where I can grow, learn, and contribute immediately.
+  </p>
+</div>
 
-    <div class="card" id="contact">
-      <h2 style="margin-top:0;">Contact</h2>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/" target="_blank" rel="noreferrer">github.com/yourname</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">linkedin.com/in/yourname</a></p>
-    </div>
+<div class="card">
+  <h2>Skills</h2>
+  <ul>
+    <li>Networking: VLANs, Subnetting, DHCP, DNS</li>
+    <li>Security: Firewall rules, NAT, Hardening</li>
+    <li>Tools: pfSense, Wireshark, Windows CLI</li>
+    <li>Troubleshooting & Documentation</li>
+  </ul>
+</div>
 
-    <footer>
-      © <span id="year"></span> Jermaine Robinson
-    </footer>
-  </div>
+<div class="card">
+  <h2>Projects</h2>
+  <ul>
+    <li><b>VLAN + DHCP Lab</b> — Configured segmented network using DHCP</li>
+    <li><b>pfSense Firewall Setup</b> — Built and tested NAT rules</li>
+    <li><b>Cloud Comparison</b> — AWS vs Azure vs GCP analysis</li>
+  </ul>
+</div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<div class="card">
+  <h2>Contact</h2>
+  <p>Email: jermainerobinson815@gmail.com</p>
+  <p>Phone: (757) 367-0547</p>
+</div>
+
+</div>
+
+<footer>
+  © <span id="year"></span> Jermaine Robinson
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
 </body>
 </html>
