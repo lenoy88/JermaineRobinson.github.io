@@ -1,113 +1,451 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jermaine Robinson | IT Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jermaine Robinson | IT Portfolio</title>
+  <meta name="description" content="Jermaine Robinson - IT student portfolio. Networking, security, and hands-on labs." />
 
-<style>
-body{
-  font-family: Arial, sans-serif;
-  background:#0b1220;
-  color:#e7ecff;
-  margin:0;
-}
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.09);
+      --text: #eaf0ff;
+      --muted: rgba(234,240,255,.75);
+      --line: rgba(255,255,255,.12);
+      --accent: #7aa2ff;
+      --accent2: #54d2d2;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
 
-.wrap{
-  max-width:1000px;
-  margin:auto;
-  padding:30px;
-}
+    *{ box-sizing: border-box; }
+    html, body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1100px 700px at 15% 10%, rgba(122,162,255,.25), transparent 60%),
+        radial-gradient(900px 650px at 90% 20%, rgba(84,210,210,.18), transparent 55%),
+        radial-gradient(900px 700px at 40% 95%, rgba(122,162,255,.18), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
+    }
 
-header{
-  text-align:center;
-  margin-bottom:30px;
-}
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
-h1{margin-bottom:5px;}
-.subtitle{opacity:.8}
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 50px;
+    }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
+    /* Top bar */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+    }
+    .dot{
+      width: 12px; height: 12px; border-radius: 99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 5px rgba(122,162,255,.14);
+    }
+    .brand-title{
+      display: flex; flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand-title strong{ font-size: 14px; letter-spacing: .2px; }
+    .brand-title span{ font-size: 12px; color: var(--muted); }
 
-.card{
-  background:#111b33;
-  border-radius:14px;
-  padding:18px;
-  border:1px solid #22355a;
-}
+    .nav{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .chip{
+      display: inline-flex;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .chip:hover{
+      background: rgba(255,255,255,.07);
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
 
-h2{margin-top:0;}
+    /* Hero */
+    .hero{
+      margin-top: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 18px;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+    }
 
-ul{padding-left:18px}
+    .kicker{
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      width: fit-content;
+      background: rgba(255,255,255,.04);
+    }
+    .kicker b{ color: var(--text); font-weight: 600; }
 
-footer{
-  text-align:center;
-  margin-top:30px;
-  opacity:.7;
-}
-</style>
+    h1{
+      margin: 12px 0 8px;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .subtitle{
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      max-width: 70ch;
+    }
+
+    .cta-row{
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .12s ease, background .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); text-decoration: none; }
+    .btn.primary{
+      border-color: rgba(122,162,255,.35);
+      background: linear-gradient(135deg, rgba(122,162,255,.24), rgba(84,210,210,.14));
+    }
+
+    .side-card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .side-card h3{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: .2px;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .side-card ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .side-card li{ margin: 8px 0; }
+    .side-card b{ color: var(--text); }
+
+    /* Sections */
+    .grid{
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+    }
+    .card p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .pill-row{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .pill{
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project{
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      margin-top: 12px;
+    }
+    .project h3{
+      margin: 0;
+      font-size: 16px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .project small{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12px;
+      border: 1px solid var(--line);
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+    }
+    .project ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .project li{ margin: 6px 0; }
+
+    /* Contact */
+    .contact-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 700px){ .contact-grid{ grid-template-columns: 1fr; } }
+
+    .contact-item{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .contact-item span{
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .contact-item a{
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    footer{
+      margin-top: 22px;
+      color: rgba(234,240,255,.6);
+      font-size: 13px;
+      text-align: center;
+      padding: 18px 10px;
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div class="brand-title">
+          <strong>Jermaine Robinson</strong>
+          <span>IT Student · Networking · Security</span>
+        </div>
+      </div>
 
-<header>
-  <h1>Jermaine Robinson</h1>
-  <div class="subtitle">IT Student • Networking • Security</div>
-</header>
+      <nav class="nav" aria-label="Primary">
+        <a class="chip" href="#about">About</a>
+        <a class="chip" href="#projects">Projects</a>
+        <a class="chip" href="#skills">Skills</a>
+        <a class="chip" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="grid">
+  <main class="wrap">
+    <section class="hero" id="about">
+      <div>
+        <div class="kicker"><b>Open to opportunities</b> · Entry-level IT</div>
+        <h1>IT Portfolio</h1>
+        <p class="subtitle">
+          I’m an IT student building hands-on skills in networking and security.
+          I like practical labs like VLANs, pfSense, and troubleshooting real setups.
+        </p>
 
-<div class="card">
-  <h2>About Me</h2>
-  <p>
-    Motivated IT student building hands-on skills in networking,
-    cybersecurity, and troubleshooting. Seeking an entry-level IT role
-    where I can grow, learn, and contribute immediately.
-  </p>
-</div>
+        <div class="cta-row">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      </div>
 
-<div class="card">
-  <h2>Skills</h2>
-  <ul>
-    <li>Networking: VLANs, Subnetting, DHCP, DNS</li>
-    <li>Security: Firewall rules, NAT, Hardening</li>
-    <li>Tools: pfSense, Wireshark, Windows CLI</li>
-    <li>Troubleshooting & Documentation</li>
-  </ul>
-</div>
+      <aside class="side-card" aria-label="Focus Areas">
+        <h3>Focus Areas</h3>
+        <ul>
+          <li><b>Networking:</b> VLANs, Subnetting, DHCP, DNS basics</li>
+          <li><b>Security:</b> Firewall rules, NAT, basic hardening</li>
+          <li><b>Tools:</b> pfSense, Wireshark (basic), Windows CLI</li>
+          <li><b>Soft skills:</b> Documentation, troubleshooting, customer mindset</li>
+        </ul>
+      </aside>
+    </section>
 
-<div class="card">
-  <h2>Projects</h2>
-  <ul>
-    <li><b>VLAN + DHCP Lab</b> — Configured segmented network using DHCP</li>
-    <li><b>pfSense Firewall Setup</b> — Built and tested NAT rules</li>
-    <li><b>Cloud Comparison</b> — AWS vs Azure vs GCP analysis</li>
-  </ul>
-</div>
+    <section class="grid">
+      <div class="card" id="projects">
+        <h2>Projects</h2>
+        <p>Hands-on labs and write-ups that show real skills (not just buzzwords).</p>
 
-<div class="card">
-  <h2>Contact</h2>
-  <p>Email: jermainerobinson815@gmail.com</p>
-  <p>Phone: (757) 367-0547</p>
-</div>
+        <div class="project">
+          <h3>VLAN + DHCP Snoop Lab <small>Networking</small></h3>
+          <ul>
+            <li>Configured segmented network using VLANs</li>
+            <li>Verified switching and DHCP behavior</li>
+            <li>Documented steps and results</li>
+          </ul>
+        </div>
 
-</div>
+        <div class="project">
+          <h3>pfSense Firewall Setup <small>Security</small></h3>
+          <ul>
+            <li>Built NAT rules and tested connectivity</li>
+            <li>Created firewall rules and verified traffic flow</li>
+            <li>Practiced basic hardening and troubleshooting</li>
+          </ul>
+        </div>
 
-<footer>
-  © <span id="year"></span> Jermaine Robinson
-</footer>
+        <div class="project">
+          <h3>Cloud Comparison Notes <small>Cloud</small></h3>
+          <ul>
+            <li>AWS vs Azure vs GCP comparison</li>
+            <li>Organized notes with examples and diagrams</li>
+            <li>Focused on practical differences and use cases</li>
+          </ul>
+        </div>
+      </div>
 
-</div>
+      <div class="card" id="skills">
+        <h2>Skills</h2>
+        <p>What I’m building and practicing consistently.</p>
 
-<script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-</script>
+        <div class="pill-row" aria-label="Skill tags">
+          <span class="pill">VLANs</span>
+          <span class="pill">Subnetting</span>
+          <span class="pill">DHCP</span>
+          <span class="pill">DNS basics</span>
+          <span class="pill">Firewall rules</span>
+          <span class="pill">NAT</span>
+          <span class="pill">pfSense</span>
+          <span class="pill">Wireshark (basic)</span>
+          <span class="pill">Windows CLI</span>
+          <span class="pill">Documentation</span>
+          <span class="pill">Troubleshooting</span>
+          <span class="pill">Customer mindset</span>
+        </div>
+      </div>
+    </section>
 
+    <section class="card" id="contact" style="margin-top:16px;">
+      <h2>Contact</h2>
+      <p>If you want to connect about entry-level IT roles, projects, or labs—reach out.</p>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span>Email</span>
+          <a href="mailto:jermainrobinson815@gmail.com">jermainrobinson815@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span>Phone</span>
+          <a href="tel:+17573670547">(757) 367-0547</a>
+        </div>
+        <div class="contact-item">
+          <span>GitHub</span>
+          <a href="https://github.com/lenoy88" target="_blank" rel="noreferrer">github.com/lenoy88</a>
+        </div>
+        <div class="contact-item">
+          <span>Website</span>
+          <a href="https://lenoy88.github.io/JermaineRobinson.github.io/" target="_blank" rel="noreferrer">
+            lenoy88.github.io/JermaineRobinson.github.io/
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Jermaine Robinson · Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
