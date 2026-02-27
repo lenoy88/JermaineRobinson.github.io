@@ -9,7 +9,7 @@
 body{
   margin:0;
   font-family:Segoe UI,Arial,sans-serif;
-  background:linear-gradient(135deg,#0f172a,#1e293b,#0f172a);
+  background:#0f172a;
   color:#fff;
 }
 
@@ -24,19 +24,20 @@ body{
   margin-bottom:40px;
 }
 
+/* PROFILE PHOTO */
 .avatar{
-  width:170px;
-  height:170px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   object-fit:cover;
-  border:4px solid rgba(255,255,255,.2);
-  box-shadow:0 15px 40px rgba(0,0,0,.6);
+  border:5px solid #22c55e;
+  box-shadow:0 15px 40px rgba(0,0,0,.7);
   margin-bottom:15px;
 }
 
 h1{
   margin:10px 0 5px;
-  font-size:42px;
+  font-size:44px;
 }
 
 .subtitle{
@@ -56,8 +57,11 @@ h1{
   transition:.2s;
 }
 
-.btn:hover{background:#4ade80;}
+.btn:hover{
+  background:#4ade80;
+}
 
+/* CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -65,13 +69,16 @@ h1{
 }
 
 .card{
-  background:rgba(255,255,255,.05);
+  background:#1e293b;
   padding:22px;
   border-radius:12px;
   box-shadow:0 10px 25px rgba(0,0,0,.5);
 }
 
-.card h2{margin-top:0;}
+.card h2{
+  margin-top:0;
+  color:#22c55e;
+}
 
 footer{
   text-align:center;
@@ -88,7 +95,8 @@ footer{
 <!-- HERO -->
 <div class="hero">
 
-<img class="avatar" src="Screenshot_20260226_114601_Messages.jpg" alt="Jermaine Robinson">
+<!-- YOUR PHOTO -->
+<img class="avatar" src="profile.jpg" alt="Jermaine Robinson">
 
 <h1>Jermaine Robinson</h1>
 
@@ -101,7 +109,7 @@ IT Student • Networking • Security • Entry-Level IT Support
 
 </div>
 
-<!-- CARDS -->
+<!-- INFO CARDS -->
 <div class="grid">
 
 <div class="card">
@@ -125,4 +133,30 @@ Currently seeking entry-level IT or Help Desk opportunities.
 <div class="card">
 <h2>Skills</h2>
 <ul>
-<li>Networking: VLANs, Subnetting, DHCP
+<li>Networking: VLANs, Subnetting, DHCP, DNS</li>
+<li>Security: Firewall Rules, NAT, Basic Hardening</li>
+<li>Tools: pfSense, Wireshark, Windows CLI</li>
+<li>Soft Skills: Documentation, Troubleshooting</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Contact</h2>
+<p>Email: jermaimerobinson815@gmail.com</p>
+<p>Phone: (757) 367-0547</p>
+</div>
+
+</div>
+
+<footer>
+© <span id="year"></span> Jermaine Robinson
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
